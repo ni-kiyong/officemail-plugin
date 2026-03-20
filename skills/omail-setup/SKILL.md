@@ -1,7 +1,7 @@
 ---
 name: omail-setup
 description: "Set up Officemail CLI — login via OAuth or configure JMAP server connection"
-version: 0.1.12
+version: 0.1.13
 ---
 
 # omail setup
