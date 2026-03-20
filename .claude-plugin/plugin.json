@@ -1,0 +1,11 @@
+{
+  "name": "officemail",
+  "version": "0.1.7",
+  "description": "Officemail CLI for AI — let your AI agent read, send, and manage email. Structured JSON output, dry-run safety, and JMAP-native.",
+  "author": {
+    "name": "jiran.com",
+    "email": "kiyong.kim@jiran.com"
+  },
+  "repository": "https://github.com/ni-kiyong/officemail-plugin",
+  "hooks": "./hooks/hooks.json"
+}

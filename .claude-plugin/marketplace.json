@@ -1,0 +1,13 @@
+{
+  "name": "officemail",
+  "owner": {
+    "name": "jiran.com",
+    "email": "kiyong.kim@jiran.com"
+  },
+  "plugins": [
+    {
+      "name": "officemail",
+      "source": "./"
+    }
+  ]
+}
