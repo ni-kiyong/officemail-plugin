@@ -1,7 +1,7 @@
 ---
 name: omail-setup
 description: "Set up Officemail CLI — configure JMAP server connection and verify it works"
-version: 0.1.9
+version: 0.1.10
 ---
 
 # omail setup
