@@ -31,6 +31,8 @@ First-time setup:
     ${CLAUDE_PLUGIN_DATA}/omail mail +triage --mailbox Sent          # sent mail summary
     ${CLAUDE_PLUGIN_DATA}/omail mail +triage --limit 10              # top 10
     ${CLAUDE_PLUGIN_DATA}/omail mail +read --message-id <id>         # full message body
+    ${CLAUDE_PLUGIN_DATA}/omail mail +read --message-id <id> --save-attachments       # download attachments to cwd
+    ${CLAUDE_PLUGIN_DATA}/omail mail +read --message-id <id> --save-attachments /tmp  # download to specific dir
     ${CLAUDE_PLUGIN_DATA}/omail mail +search --query "from:bob budget" --limit 20
 
 ### Send & Reply
@@ -38,8 +40,12 @@ First-time setup:
     ${CLAUDE_PLUGIN_DATA}/omail mail +send --to alice@example.com --subject "Hello" --body "Hi"
     ${CLAUDE_PLUGIN_DATA}/omail mail +send --to alice@example.com --subject "Report" --body "See attached" -a report.pdf
     ${CLAUDE_PLUGIN_DATA}/omail mail +reply --message-id <id> --body "Thanks!"
+    ${CLAUDE_PLUGIN_DATA}/omail mail +reply --message-id <id> --body "See attached" -a notes.pdf
     ${CLAUDE_PLUGIN_DATA}/omail mail +reply-all --message-id <id> --body "Noted."
+    ${CLAUDE_PLUGIN_DATA}/omail mail +reply-all --message-id <id> --body "Noted." -a summary.pdf
     ${CLAUDE_PLUGIN_DATA}/omail mail +forward --message-id <id> --to bob@example.com --body "FYI"
+    ${CLAUDE_PLUGIN_DATA}/omail mail +forward --message-id <id> --to bob@example.com --include-attachments
+    ${CLAUDE_PLUGIN_DATA}/omail mail +forward --message-id <id> --to bob@example.com -a extra.pdf --include-attachments
     ${CLAUDE_PLUGIN_DATA}/omail mail +draft --to alice@example.com --subject "Draft" --body "WIP"
 
 ### Organize
