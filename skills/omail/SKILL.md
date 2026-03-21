@@ -131,6 +131,8 @@ Environment variables (override config file):
 ## MCP Server
 
 Officemail also runs as an MCP (Model Context Protocol) server for direct AI integration.
+For detailed setup instructions (Claude Code plugin or Claude Desktop), see the
+**omail-setup** skill.
 
 ### Start
 
