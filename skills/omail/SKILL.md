@@ -1,12 +1,12 @@
 ---
 name: omail
-description: "Use when the user asks about email, wants to read mail, send email, check inbox, triage messages, search emails, reply to messages, or manage their Officemail/JMAP mailbox. Provides CLI commands for self-hosted Cyrus IMAP via JMAP protocol."
+description: "Use when the user asks about email, calendar, or contacts — read/send/triage mail, check agenda, create events, search contacts, or manage their Officemail/JMAP mailbox. CLI for self-hosted Cyrus IMAP via JMAP."
 version: 0.2.29
 ---
 
 # omail — Officemail CLI
 
-Officemail CLI for AI — let your AI agent read, send, and manage email.
+Officemail CLI for AI — let your AI agent read, send, and manage email, calendar, and contacts.
 Structured JSON output, dry-run safety, and JMAP-native.
 
 ## Binary path
@@ -57,6 +57,29 @@ First-time setup:
 ### Watch
 
     ${CLAUDE_PLUGIN_DATA}/omail mail +watch                          # stream new emails as NDJSON
+
+### Calendar
+
+    ${CLAUDE_PLUGIN_DATA}/omail calendar +agenda                         # upcoming events (7 days)
+    ${CLAUDE_PLUGIN_DATA}/omail calendar +agenda --days 14               # next 2 weeks
+    ${CLAUDE_PLUGIN_DATA}/omail calendar +insert --title "Meeting" --start "2026-03-25T10:00:00" --end "2026-03-25T11:00:00"
+    ${CLAUDE_PLUGIN_DATA}/omail calendar +update --event-id <id> --title "New Title"
+    ${CLAUDE_PLUGIN_DATA}/omail calendar +delete --event-id <id>
+    ${CLAUDE_PLUGIN_DATA}/omail calendar +freebusy --start "2026-03-25T00:00:00Z" --end "2026-03-26T00:00:00Z"
+
+### Contacts
+
+    ${CLAUDE_PLUGIN_DATA}/omail contacts +list                           # all contacts
+    ${CLAUDE_PLUGIN_DATA}/omail contacts +search --query "alice"         # search by name/email
+    ${CLAUDE_PLUGIN_DATA}/omail contacts +add --name "Alice" --email alice@example.com
+    ${CLAUDE_PLUGIN_DATA}/omail contacts +update --contact-id <id> --name "Alice Park"
+    ${CLAUDE_PLUGIN_DATA}/omail contacts +delete --contact-id <id>
+
+### Schema
+
+    ${CLAUDE_PLUGIN_DATA}/omail schema                                   # list all resources + server support
+    ${CLAUDE_PLUGIN_DATA}/omail schema CalendarEvent/get                 # specific method info
+    ${CLAUDE_PLUGIN_DATA}/omail schema calendar.calendarevent.get        # dot notation also works
 
 ### Raw JMAP Methods
 
