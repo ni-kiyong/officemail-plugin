@@ -6,7 +6,9 @@ version: 0.1.18
 
 # omail setup
 
-## Step 1: Check binary
+## Claude Code Plugin Setup
+
+### Step 1: Check binary
 
 Verify the binary exists:
 
@@ -14,9 +16,9 @@ Verify the binary exists:
 
 If missing, ask the user to restart the session.
 
-## Step 2: Login
+### Step 2: Login
 
-### Option A: OAuth login (recommended for OfficeNEXT users)
+#### Option A: OAuth login (recommended for OfficeNEXT users)
 
 Ask the user for their email address, then run:
 
@@ -29,7 +31,7 @@ For dev environment:
 A browser window will open for authentication. The user clicks "Sign in",
 completes OAuth login in the popup, and tokens are saved automatically.
 
-### Option B: Manual setup (JMAP URL + Bearer token)
+#### Option B: Manual setup (JMAP URL + Bearer token)
 
 Ask the user for their JMAP server domain and Bearer token, then run:
 
@@ -39,12 +41,48 @@ Example:
 
     ${CLAUDE_PLUGIN_DATA}/omail auth setup --url jmap.example.com --token eyJhbGci...
 
-## Step 3: Verify connection
+### Step 3: Verify connection
 
     ${CLAUDE_PLUGIN_DATA}/omail doctor
 
-## Step 4: Test
+### Step 4: Test
 
     ${CLAUDE_PLUGIN_DATA}/omail mail +triage
 
 If this returns inbox data, setup is complete.
+
+## Claude Desktop Setup
+
+### Step 1: Install omail binary
+
+Download the latest release binary for your platform from the
+[releases page](https://github.com/ni-kiyong/officemail-plugin/releases)
+and place it in your PATH. Verify it works:
+
+    omail --version
+
+### Step 2: Configure Claude Desktop
+
+Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "officemail": {
+      "command": "omail",
+      "args": ["mcp", "serve"]
+    }
+  }
+}
+```
+
+### Step 3: Login
+
+Run in terminal first:
+
+    omail auth login --email you@company.com
+
+### Step 4: Restart Claude Desktop
+
+Restart Claude Desktop to load the MCP server. You should see officemail
+tools available in the tools menu.
