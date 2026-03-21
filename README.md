@@ -1,6 +1,6 @@
 # Officemail Plugin
 
-AI 에이전트가 이메일을 읽고, 보내고, 관리할 수 있는 Claude Code 플러그인입니다.
+AI 에이전트가 이메일을 읽고, 보내고, 관리할 수 있는 Claude Code 플러그인이자 MCP 서버입니다.
 
 ## 설치
 
@@ -22,6 +22,40 @@ claude plugin add ni-kiyong/officemail-plugin
 ```text
 /officemail:omail-setup
 ```
+
+### Claude Desktop
+
+Claude Desktop에서 MCP 서버로 사용할 수 있습니다.
+
+1. `omail` 바이너리를 설치합니다:
+
+```bash
+curl -L -o omail https://github.com/ni-kiyong/officemail-plugin/releases/latest/download/omail-darwin-arm64
+chmod +x omail
+sudo mv omail /usr/local/bin/
+```
+
+2. 인증을 설정합니다:
+
+```bash
+omail auth setup
+```
+
+3. `claude_desktop_config.json`에 MCP 서버를 추가합니다:
+
+```json
+{
+  "mcpServers": {
+    "officemail": {
+      "command": "omail",
+      "args": ["mcp"]
+    }
+  }
+}
+```
+
+Claude Desktop을 재시작하면 11개 도구(tools), 1개 리소스(resource),
+2개 프롬프트(prompts)를 사용할 수 있습니다.
 
 ## 구성
 
