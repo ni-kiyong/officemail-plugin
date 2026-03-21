@@ -1,7 +1,7 @@
 ---
 name: omail-mail
 description: "Email management helpers and raw JMAP mail methods reference"
-version: 0.2.24
+version: 0.2.25
 ---
 
 # omail mail — Email Management
