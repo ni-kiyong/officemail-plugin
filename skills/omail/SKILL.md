@@ -1,7 +1,7 @@
 ---
 name: omail
 description: "Use when the user asks about email, wants to read mail, send email, check inbox, triage messages, search emails, reply to messages, or manage their Officemail/JMAP mailbox. Provides CLI commands for self-hosted Cyrus IMAP via JMAP protocol."
-version: 0.2.23
+version: 0.2.24
 ---
 
 # omail — Officemail CLI
