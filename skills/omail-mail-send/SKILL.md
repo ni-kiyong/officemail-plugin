@@ -1,7 +1,7 @@
 ---
 name: omail-mail-send
 description: "Send email via omail CLI with attachments, CC/BCC, HTML body support"
-version: 0.2.32
+version: 0.2.33
 ---
 
 # omail mail +send — Send an email

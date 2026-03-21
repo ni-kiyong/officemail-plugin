@@ -1,7 +1,7 @@
 ---
 name: omail-shared
 description: "Shared auth, global flags, exit codes, and security rules for all omail commands"
-version: 0.2.32
+version: 0.2.33
 ---
 
 # omail — Officemail CLI
