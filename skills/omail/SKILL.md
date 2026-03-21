@@ -127,3 +127,49 @@ Environment variables (override config file):
 1. `${CLAUDE_PLUGIN_DATA}/omail mail +draft --to <email> --subject "..." --body "..."` — save to Drafts
 2. User reviews in webmail/mobile
 3. User sends manually when ready
+
+## MCP Server
+
+Officemail also runs as an MCP (Model Context Protocol) server for direct AI integration.
+
+### Start
+
+    omail mcp serve
+
+### Claude Desktop config
+
+```json
+{
+  "mcpServers": {
+    "officemail": {
+      "command": "omail",
+      "args": ["mcp", "serve"]
+    }
+  }
+}
+```
+
+### Available Tools
+
+| Tool | Description |
+|------|-------------|
+| `omail_triage` | Get unread inbox summary with message previews |
+| `omail_read` | Read full message body, headers, and attachment info |
+| `omail_send` | Send a new email |
+| `omail_reply` | Reply to a message |
+| `omail_reply_all` | Reply-all to a message |
+| `omail_forward` | Forward a message to new recipients |
+| `omail_search` | Full-text email search with snippets |
+| `omail_move` | Move messages to a different mailbox |
+| `omail_flag` | Set or unset keywords (flags) on messages |
+| `omail_draft` | Save an email draft without sending |
+| `omail_mailbox_set` | Create, update, or delete mailboxes |
+
+### Resources
+
+- `officemail://mailboxes` — list all mailboxes with counts
+
+### Prompts
+
+- `triage-and-reply` — triage inbox and draft replies
+- `draft-for-review` — draft an email for review before sending
