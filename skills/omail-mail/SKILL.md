@@ -39,3 +39,8 @@ PREREQUISITE: Read ../omail-shared/SKILL.md for auth, global flags, and security
     ${CLAUDE_PLUGIN_DATA}/omail mail email query --params '{"filter":{"inMailbox":"INBOX"}}'
     ${CLAUDE_PLUGIN_DATA}/omail mail email set --json '{"update":{"<id>":{"mailboxIds":{"<mailboxId>":true}}}}'
     ${CLAUDE_PLUGIN_DATA}/omail mail thread get --params '{"ids":["<id>"]}'
+
+## MCP Server
+
+All mail helpers above are also available as MCP tools via `omail mcp serve`.
+See the `omail` skill docs for Claude Desktop config and full tool list.
