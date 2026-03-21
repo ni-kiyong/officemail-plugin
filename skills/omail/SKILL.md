@@ -1,7 +1,7 @@
 ---
 name: omail
 description: "Use when the user asks about email, calendar, or contacts — read/send/triage mail, check agenda, create events, search contacts, or manage their Officemail/JMAP mailbox. CLI for self-hosted Cyrus IMAP via JMAP."
-version: 0.2.29
+version: 0.2.30
 ---
 
 # omail — Officemail CLI
@@ -30,10 +30,12 @@ First-time setup:
     ${CLAUDE_PLUGIN_DATA}/omail mail +triage                         # unread inbox summary
     ${CLAUDE_PLUGIN_DATA}/omail mail +triage --mailbox Sent          # sent mail summary
     ${CLAUDE_PLUGIN_DATA}/omail mail +triage --limit 10              # top 10
+    ${CLAUDE_PLUGIN_DATA}/omail mail +triage --page-all              # all unread
     ${CLAUDE_PLUGIN_DATA}/omail mail +read --message-id <id>         # full message body
     ${CLAUDE_PLUGIN_DATA}/omail mail +read --message-id <id> --save-attachments       # download attachments to cwd
     ${CLAUDE_PLUGIN_DATA}/omail mail +read --message-id <id> --save-attachments /tmp  # download to specific dir
     ${CLAUDE_PLUGIN_DATA}/omail mail +search --query "from:bob budget" --limit 20
+    ${CLAUDE_PLUGIN_DATA}/omail mail +search --query "report" --page-all   # all results
 
 ### Send & Reply
 
@@ -61,11 +63,13 @@ First-time setup:
 ### Calendar
 
     ${CLAUDE_PLUGIN_DATA}/omail calendar +agenda                         # upcoming events (7 days)
-    ${CLAUDE_PLUGIN_DATA}/omail calendar +agenda --days 14               # next 2 weeks
+    ${CLAUDE_PLUGIN_DATA}/omail calendar +agenda --days 14 --page-all    # next 2 weeks, all pages
     ${CLAUDE_PLUGIN_DATA}/omail calendar +insert --title "Meeting" --start "2026-03-25T10:00:00" --end "2026-03-25T11:00:00"
+    ${CLAUDE_PLUGIN_DATA}/omail calendar +insert --title "Review" --start "2026-03-25T14:00:00" --end "2026-03-25T15:00:00" --invite alice@example.com
     ${CLAUDE_PLUGIN_DATA}/omail calendar +update --event-id <id> --title "New Title"
     ${CLAUDE_PLUGIN_DATA}/omail calendar +delete --event-id <id>
-    ${CLAUDE_PLUGIN_DATA}/omail calendar +freebusy --start "2026-03-25T00:00:00Z" --end "2026-03-26T00:00:00Z"
+    ${CLAUDE_PLUGIN_DATA}/omail calendar +freebusy --start "2026-03-25T00:00:00" --end "2026-03-26T00:00:00"
+    ${CLAUDE_PLUGIN_DATA}/omail calendar +rsvp --event-id <id> --status accepted
 
 ### Contacts
 
@@ -163,16 +167,14 @@ For detailed setup instructions (Claude Code plugin or Claude Desktop), see the
 
 ### Claude Desktop config
 
-```json
-{
-  "mcpServers": {
-    "officemail": {
-      "command": "omail",
-      "args": ["mcp", "serve"]
+    {
+      "mcpServers": {
+        "officemail": {
+          "command": "omail",
+          "args": ["mcp", "serve"]
+        }
+      }
     }
-  }
-}
-```
 
 ### Available Tools
 
@@ -188,7 +190,11 @@ For detailed setup instructions (Claude Code plugin or Claude Desktop), see the
 | `omail_move` | Move messages to a different mailbox |
 | `omail_flag` | Set or unset keywords (flags) on messages |
 | `omail_draft` | Save an email draft without sending |
-| `omail_mailbox_set` | Create, update, or delete mailboxes |
+| `omail_mailbox_set` | Create, update, or delete mailboxes (raw Mailbox/set) |
+| `omail_mailboxes` | List all mailboxes with unread/total counts |
+| `omail_download` | Download an attachment by blobId (returns base64) |
+| `omail_whoami` | Show current auth status and account info |
+| `omail_jmap` | Execute a raw JMAP method (accountId auto-injected) |
 
 ### Resources
 

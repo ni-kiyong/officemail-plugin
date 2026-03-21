@@ -32,9 +32,9 @@ Claude Desktop에서 MCP 서버로 사용할 수 있습니다.
 2. 더블클릭하면 바이너리와 MCP 서버 설정이 자동으로 설치됩니다
 3. 터미널에서 인증을 설정합니다:
 
-```bash
-omail auth login --email you@company.com
-```
+    ```bash
+    omail auth login --email you@company.com
+    ```
 
 4. Claude Desktop을 재시작하면 11개 도구(tools), 1개 리소스(resource),
    2개 프롬프트(prompts)를 사용할 수 있습니다

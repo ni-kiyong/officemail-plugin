@@ -1,7 +1,7 @@
 ---
 name: omail-mail
 description: "Email management helpers and raw JMAP mail methods reference"
-version: 0.2.29
+version: 0.2.30
 ---
 
 # omail mail — Email Management
@@ -18,17 +18,17 @@ PREREQUISITE: Read ../omail-shared/SKILL.md for auth, global flags, and security
 
 | Command | Description |
 |---------|-------------|
-| `+send` | Send an email (`-a` for attachments) |
+| `+send` | Send an email (`-a` for attachments, `--cc`, `--bcc`, `--html`, `--from`) |
 | `+reply` | Reply with auto-threading (`-a` for attachments) |
 | `+reply-all` | Reply-all (`-a` for attachments) |
 | `+forward` | Forward (`-a`, `--include-attachments` for originals) |
-| `+triage` | Unread inbox summary |
-| `+read` | Read message body (`--save-attachments [dir]`) |
-| `+search` | Full-text search |
+| `+triage` | Unread inbox summary (`--mailbox`, `--limit`, `--page-all`) |
+| `+read` | Read message body (`--raw`, `--save-attachments [dir]`) |
+| `+search` | Full-text search (`--query`, `--mailbox`, `--limit`, `--page-all`) |
 | `+move` | Move between mailboxes |
 | `+flag` | Set/unset keywords |
-| `+draft` | Save to Drafts |
-| `+watch` | Watch for new emails (NDJSON stream) |
+| `+draft` | Save to Drafts (`--cc`, `--html`) |
+| `+watch` | Watch for new emails (NDJSON stream, `--types`) |
 
 ## Raw methods
 
