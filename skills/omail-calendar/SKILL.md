@@ -1,7 +1,7 @@
 ---
 name: omail-calendar
 description: "Calendar management helpers and raw JMAP calendar methods. Use when the user asks about calendar events, scheduling, agenda, free/busy status, or wants to create/update/delete events."
-version: 0.2.31
+version: 0.2.32
 ---
 
 # omail calendar — Calendar Management
@@ -60,7 +60,8 @@ PREREQUISITE: Read ../omail-shared/SKILL.md for auth, global flags, and security
 - Recurring events: use `--series` flag on `+update` and `+delete`
 - `--invite` adds participants with iMIP `sendTo` (server sends invitations automatically)
 - `+rsvp` updates your `participationStatus` on an invited event
-- `+agenda` and `+freebusy` use client-side date filtering (server does not support `after`/`before` filters)
+- `+agenda` and `+freebusy` use client-side date filtering
+  (server does not support `after`/`before` filters)
 - `+agenda` supports `--days`, `--timezone`, `--limit`, `--page-all`
 - `+insert` auto-resolves default calendar via `Calendar/get` when `--calendar` is omitted
 - JSCalendar uses `locations` (plural, keyed object) — not `location`

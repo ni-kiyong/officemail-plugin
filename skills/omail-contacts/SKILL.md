@@ -1,7 +1,7 @@
 ---
 name: omail-contacts
 description: "Contacts management helpers and raw JMAP contacts methods. Use when the user asks about contacts, address book, wants to find someone's email, or add/update/delete contacts."
-version: 0.2.31
+version: 0.2.32
 ---
 
 # omail contacts — Contacts Management

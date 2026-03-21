@@ -1,7 +1,7 @@
 ---
 name: omail
 description: "Use when the user asks about email, calendar, or contacts — read/send/triage mail, check agenda, create events, search contacts, or manage their Officemail/JMAP mailbox. CLI for self-hosted Cyrus IMAP via JMAP."
-version: 0.2.31
+version: 0.2.32
 ---
 
 # omail — Officemail CLI
