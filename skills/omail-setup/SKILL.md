@@ -1,16 +1,21 @@
 ---
 name: omail-setup
-description: "Set up Officemail CLI — login via OAuth or configure JMAP server connection"
+description: "Set up Officemail CLI — OAuth login, manual JMAP configuration, token
+  refresh, auth troubleshooting, and connection diagnostics (doctor). Use when the
+  user asks to log in, configure auth, fix connection issues, or set up omail for
+  the first time."
 version: 0.2.35
 ---
 
-# omail setup
+# omail setup — Auth & Diagnostics
+
+## Binary path
+
+    ${CLAUDE_PLUGIN_DATA}/omail
 
 ## Claude Code Plugin Setup
 
 ### Step 1: Check binary
-
-Verify the binary exists:
 
     ${CLAUDE_PLUGIN_DATA}/omail --version
 
@@ -33,8 +38,6 @@ completes OAuth login in the popup, and tokens are saved automatically.
 
 #### Option B: Manual setup (JMAP URL + Bearer token)
 
-Ask the user for their JMAP server domain and Bearer token, then run:
-
     ${CLAUDE_PLUGIN_DATA}/omail auth setup --url <domain> --token <token>
 
 Example:
@@ -51,22 +54,18 @@ Example:
 
 If this returns inbox data, setup is complete.
 
-## Claude Desktop Setup
+## Auth commands
 
-### Step 1: Install via .mcpb
+    ${CLAUDE_PLUGIN_DATA}/omail auth login         # OAuth login (opens browser)
+    ${CLAUDE_PLUGIN_DATA}/omail auth setup         # manual: server URL + Bearer token
+    ${CLAUDE_PLUGIN_DATA}/omail auth logout        # clear stored credentials
+    ${CLAUDE_PLUGIN_DATA}/omail auth token <t>     # update Bearer token
+    ${CLAUDE_PLUGIN_DATA}/omail auth whoami        # verify current session
+    ${CLAUDE_PLUGIN_DATA}/omail auth refresh       # force refresh session cache
+    ${CLAUDE_PLUGIN_DATA}/omail doctor             # diagnose connection, auth, capabilities
 
-Download the `.mcpb` file for your platform from the
-[releases page](https://github.com/ni-kiyong/officemail-plugin/releases)
-(`officemail-{platform}.mcpb`). Double-click to install — the binary and
-MCP server config are included for one-click setup.
+## Notes
 
-### Step 2: Login
-
-Run in terminal:
-
-    omail auth login --email you@company.com
-
-### Step 3: Restart Claude Desktop
-
-Restart Claude Desktop to load the MCP server. You should see officemail
-tools available in the tools menu.
+- Config stored at `~/.config/officemail/config.json` (chmod 600)
+- Claude Code plugin, Claude Desktop MCP, and CLI all share the same config
+- Session uses lazy refresh (refresh on 401, retry once)

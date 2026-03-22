@@ -1,18 +1,21 @@
 ---
 name: omail-mail
-description: "Email management helpers and raw JMAP mail methods reference"
+description: "Email management via omail CLI — send, reply, forward, triage inbox,
+  read messages, search, move, flag, draft, watch for new mail, and raw JMAP mail
+  methods. Use when the user asks to read, send, search, organize, or manage email."
 version: 0.2.35
 ---
 
 # omail mail — Email Management
 
-PREREQUISITE: Read ../omail-shared/SKILL.md for auth, global flags, and security rules.
+## Binary path
 
-## Browse methods
+    ${CLAUDE_PLUGIN_DATA}/omail
 
-    ${CLAUDE_PLUGIN_DATA}/omail mail --help
-    ${CLAUDE_PLUGIN_DATA}/omail mail mailbox get --params '{...}'
-    ${CLAUDE_PLUGIN_DATA}/omail mail email get --params '{...}'
+## Safety
+
+- NEVER send email without explicit user confirmation (use --dry-run first)
+- See omail skill for global flags, exit codes, and full security rules
 
 ## Helpers
 
@@ -30,6 +33,105 @@ PREREQUISITE: Read ../omail-shared/SKILL.md for auth, global flags, and security
 | `+draft` | Save to Drafts (`--cc`, `--html`) |
 | `+watch` | Watch for new emails (NDJSON stream, `--types`) |
 
+## Usage examples
+
+### Read & triage
+
+    ${CLAUDE_PLUGIN_DATA}/omail mail +triage                         # unread INBOX summary
+    ${CLAUDE_PLUGIN_DATA}/omail mail +triage --mailbox Sent          # sent mail summary
+    ${CLAUDE_PLUGIN_DATA}/omail mail +triage --limit 10              # top 10
+    ${CLAUDE_PLUGIN_DATA}/omail mail +triage --page-all              # all unread
+    ${CLAUDE_PLUGIN_DATA}/omail mail +read --message-id <id>         # full message body
+    ${CLAUDE_PLUGIN_DATA}/omail mail +read --message-id <id> --save-attachments       # download to cwd
+    ${CLAUDE_PLUGIN_DATA}/omail mail +read --message-id <id> --save-attachments /tmp  # download to dir
+    ${CLAUDE_PLUGIN_DATA}/omail mail +search --query "from:bob budget" --limit 20
+    ${CLAUDE_PLUGIN_DATA}/omail mail +search --query "report" --page-all
+
+### Send & reply
+
+    ${CLAUDE_PLUGIN_DATA}/omail mail +send --to alice@example.com --subject "Hello" --body "Hi"
+    ${CLAUDE_PLUGIN_DATA}/omail mail +send --to alice@example.com --subject "Report" --body "See attached" -a report.pdf
+    ${CLAUDE_PLUGIN_DATA}/omail mail +send --to alice@example.com --subject "Bold" --body '<b>Bold</b>' --html
+    ${CLAUDE_PLUGIN_DATA}/omail mail +send --to alice@example.com --subject "Test" --body "Hi" --from alias@example.com
+    ${CLAUDE_PLUGIN_DATA}/omail mail +reply --message-id <id> --body "Thanks!"
+    ${CLAUDE_PLUGIN_DATA}/omail mail +reply --message-id <id> --body "See attached" -a notes.pdf
+    ${CLAUDE_PLUGIN_DATA}/omail mail +reply-all --message-id <id> --body "Noted."
+    ${CLAUDE_PLUGIN_DATA}/omail mail +reply-all --message-id <id> --body "Noted." -a summary.pdf
+    ${CLAUDE_PLUGIN_DATA}/omail mail +forward --message-id <id> --to bob@example.com --body "FYI"
+    ${CLAUDE_PLUGIN_DATA}/omail mail +forward --message-id <id> --to bob@example.com --include-attachments
+    ${CLAUDE_PLUGIN_DATA}/omail mail +forward --message-id <id> --to bob@example.com -a extra.pdf --include-attachments
+
+### Draft, organize, watch
+
+    ${CLAUDE_PLUGIN_DATA}/omail mail +draft --to alice@example.com --subject "Draft" --body "WIP"
+    ${CLAUDE_PLUGIN_DATA}/omail mail +move --message-id <id> --to Archive
+    ${CLAUDE_PLUGIN_DATA}/omail mail +flag --message-id <id> --set '$flagged'
+    ${CLAUDE_PLUGIN_DATA}/omail mail +flag --message-id <id> --unset '$seen'
+    ${CLAUDE_PLUGIN_DATA}/omail mail +watch
+
+## +send flags
+
+| Flag | Required | Description |
+|------|----------|-------------|
+| `--to` | Yes | Recipient email(s) |
+| `--subject` | Yes | Subject line |
+| `--body` | Yes | Message body (plain text or HTML) |
+| `--cc` | No | CC recipients |
+| `--bcc` | No | BCC recipients |
+| `--from` | No | Send-as alias |
+| `--html` | No | Treat body as HTML |
+| `-a, --attach` | No | File attachment (repeatable, max 25MB total) |
+| `--dry-run` | No | Preview without sending |
+
+## +triage flags
+
+| Flag | Required | Default | Description |
+|------|----------|---------|-------------|
+| `--mailbox` | No | INBOX | Mailbox name or role |
+| `--limit` | No | 50 | Max results per page |
+| `--page-all` | No | false | Fetch all pages |
+
+## +triage output (JSON)
+
+    {
+      "mailbox": "INBOX",
+      "totalEmails": 142,
+      "unreadEmails": 5,
+      "showing": 5,
+      "total": 5,
+      "pageAll": false,
+      "messages": [
+        {
+          "id": "msg001",
+          "from": "alice@example.com",
+          "subject": "Budget Q2",
+          "receivedAt": "2026-03-20T09:00:00Z",
+          "preview": "Hi, please review...",
+          "hasAttachment": true,
+          "isRead": false,
+          "isFlagged": false
+        }
+      ]
+    }
+
+## Recipes
+
+### Triage and reply
+
+1. `${CLAUDE_PLUGIN_DATA}/omail mail +triage` — get unread summary
+2. `${CLAUDE_PLUGIN_DATA}/omail mail +read --message-id <id>` — read full message
+3. `${CLAUDE_PLUGIN_DATA}/omail mail +reply --message-id <id> --body "..." --dry-run`
+   — preview
+4. `${CLAUDE_PLUGIN_DATA}/omail mail +reply --message-id <id> --body "..."`
+   — send after confirm
+
+### Draft for review
+
+1. `${CLAUDE_PLUGIN_DATA}/omail mail +draft --to <email> --subject "..." --body "..."`
+   — save to Drafts
+2. User reviews in webmail/mobile
+3. User sends manually when ready
+
 ## Raw methods
 
     ${CLAUDE_PLUGIN_DATA}/omail mail mailbox get --params '{...}'
@@ -40,7 +142,8 @@ PREREQUISITE: Read ../omail-shared/SKILL.md for auth, global flags, and security
     ${CLAUDE_PLUGIN_DATA}/omail mail email set --json '{"update":{"<id>":{"mailboxIds":{"<mailboxId>":true}}}}'
     ${CLAUDE_PLUGIN_DATA}/omail mail thread get --params '{"ids":["<id>"]}'
 
-## MCP Server
+## Notes
 
-All mail helpers above are also available as MCP tools via `omail mcp serve`.
-See the `omail` skill docs for Claude Desktop config and full tool list.
+- Handles MIME encoding automatically via JMAP EmailSubmission
+- Use --dry-run first when composing with an AI agent
+- Requires server support for `urn:ietf:params:jmap:submission`

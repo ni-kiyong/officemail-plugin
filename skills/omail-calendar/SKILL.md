@@ -1,14 +1,22 @@
 ---
 name: omail-calendar
-description: "Calendar management helpers and raw JMAP calendar methods. Use when the
-  user asks about calendar events, scheduling, agenda, free/busy status, or wants to
-  create/update/delete events."
+description: "Calendar management via omail CLI — view agenda, create/update/delete
+  events, recurring events, free/busy, RSVP, calendar CRUD, sharing, and raw JMAP
+  calendar methods. Use when the user asks about calendar, scheduling, agenda, or
+  events."
 version: 0.2.35
 ---
 
 # omail calendar — Calendar Management
 
-PREREQUISITE: Read ../omail-shared/SKILL.md for auth, global flags, and security rules.
+## Binary path
+
+    ${CLAUDE_PLUGIN_DATA}/omail
+
+## Safety
+
+- Always use --dry-run first when creating or modifying events via AI
+- See omail skill for global flags, exit codes, and full security rules
 
 ## Browse methods
 
