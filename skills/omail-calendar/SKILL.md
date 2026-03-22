@@ -1,7 +1,7 @@
 ---
 name: omail-calendar
 description: "Calendar management helpers and raw JMAP calendar methods. Use when the user asks about calendar events, scheduling, agenda, free/busy status, or wants to create/update/delete events."
-version: 0.2.33
+version: 0.2.34
 ---
 
 # omail calendar — Calendar Management

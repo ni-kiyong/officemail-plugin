@@ -1,6 +1,6 @@
 # Officemail Plugin
 
-AI 에이전트가 이메일을 읽고, 보내고, 관리할 수 있는 Claude Code 플러그인이자 MCP 서버입니다.
+AI 에이전트가 이메일과 캘린더를 읽고, 보내고, 관리할 수 있는 Claude Code 플러그인이자 MCP 서버입니다.
 
 ## 설치
 
@@ -41,7 +41,7 @@ Claude Desktop에서 MCP 서버로 사용할 수 있습니다.
 
 ## 구성
 
-- **Skills** — 이메일 관리를 위한 AI 에이전트 지시 파일
+- **Skills** — 이메일/캘린더 관리를 위한 AI 에이전트 지시 파일
 - **Hooks** — 첫 세션 시작 시 `omail` 실행파일 자동 설치
 - **실행파일** — macOS, Linux, Windows (arm64, x64) 6개 플랫폼 빌드 제공
 

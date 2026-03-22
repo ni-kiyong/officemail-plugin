@@ -1,12 +1,12 @@
 ---
 name: omail
-description: "Use when the user asks about email, calendar, or contacts — read/send/triage mail, check agenda, create events, search contacts, or manage their Officemail/JMAP mailbox. CLI for self-hosted Cyrus IMAP via JMAP."
-version: 0.2.33
+description: "Use when the user asks about email or calendar — read/send/triage mail, check agenda, create events, or manage their Officemail/JMAP mailbox. CLI for self-hosted Cyrus IMAP via JMAP."
+version: 0.2.34
 ---
 
 # omail — Officemail CLI
 
-Officemail CLI for AI — let your AI agent read, send, and manage email, calendar, and contacts.
+Officemail CLI for AI — let your AI agent read, send, and manage email and calendar.
 Structured JSON output, dry-run safety, and JMAP-native.
 
 ## Binary path
@@ -70,14 +70,6 @@ First-time setup:
     ${CLAUDE_PLUGIN_DATA}/omail calendar +delete --event-id <id>
     ${CLAUDE_PLUGIN_DATA}/omail calendar +freebusy --start "2026-03-25T00:00:00" --end "2026-03-26T00:00:00"
     ${CLAUDE_PLUGIN_DATA}/omail calendar +rsvp --event-id <id> --status accepted
-
-### Contacts
-
-    ${CLAUDE_PLUGIN_DATA}/omail contacts +list                           # all contacts
-    ${CLAUDE_PLUGIN_DATA}/omail contacts +search --query "alice"         # search by name/email
-    ${CLAUDE_PLUGIN_DATA}/omail contacts +add --name "Alice" --email alice@example.com
-    ${CLAUDE_PLUGIN_DATA}/omail contacts +update --contact-id <id> --name "Alice Park"
-    ${CLAUDE_PLUGIN_DATA}/omail contacts +delete --contact-id <id>
 
 ### Schema
 

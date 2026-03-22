@@ -1,12 +1,12 @@
 ---
 name: omail-shared
 description: "Shared auth, global flags, exit codes, and security rules for all omail commands"
-version: 0.2.33
+version: 0.2.34
 ---
 
 # omail — Officemail CLI
 
-Officemail CLI for AI — let your AI agent read, send, and manage email.
+Officemail CLI for AI — let your AI agent read, send, and manage email and calendar.
 
 ## Binary path
 
