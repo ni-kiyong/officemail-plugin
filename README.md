@@ -36,7 +36,7 @@ Claude Desktop에서 MCP 서버로 사용할 수 있습니다.
     omail auth login --email you@company.com
     ```
 
-4. Claude Desktop을 재시작하면 15개 도구(tools), 1개 리소스(resource),
+4. Claude Desktop을 재시작하면 15개 도구(tools)와
    2개 프롬프트(prompts)를 사용할 수 있습니다
 
 ## 인증

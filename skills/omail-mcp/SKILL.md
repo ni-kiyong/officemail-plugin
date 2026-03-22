@@ -68,10 +68,6 @@ Add to Claude Desktop settings:
 | `omail_whoami` | Show current auth status and account info |
 | `omail_jmap` | Execute a raw JMAP method (accountId auto-injected) |
 
-## Resources
-
-- `officemail://mailboxes` — list all mailboxes with counts
-
 ## Prompts
 
 - `triage-and-reply` — triage inbox and draft replies
