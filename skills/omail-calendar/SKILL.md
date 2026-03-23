@@ -4,7 +4,7 @@ description: "Calendar management via omail CLI — view agenda, create/update/d
   events, recurring events, free/busy, RSVP, calendar CRUD, sharing, and raw JMAP
   calendar methods. Use when the user asks about calendar, scheduling, agenda, or
   events."
-version: 0.2.49
+version: 0.2.50
 ---
 
 # omail calendar — Officemail Calendar Management

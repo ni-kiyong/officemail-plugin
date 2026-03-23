@@ -3,7 +3,7 @@ name: omail-mail
 description: "Email management via omail CLI — send, reply, forward, triage inbox,
   read messages, search, move, flag, draft, watch for new mail, and raw JMAP mail
   methods. Use when the user asks to read, send, search, organize, or manage email."
-version: 0.2.49
+version: 0.2.50
 ---
 
 # omail mail — Officemail Email Management

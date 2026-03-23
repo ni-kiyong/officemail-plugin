@@ -3,7 +3,7 @@ name: omail
 description: "Overview and quick reference for Officemail CLI (omail). Use when the
   user asks general questions about omail capabilities, available commands, schema
   introspection, or environment configuration."
-version: 0.2.49
+version: 0.2.50
 ---
 
 # omail — Officemail CLI
