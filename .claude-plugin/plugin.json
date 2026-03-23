@@ -1,6 +1,6 @@
 {
   "name": "officemail",
-  "version": "0.2.45",
+  "version": "0.2.46",
   "description": "Officemail CLI for AI — let your AI agent read, send, and manage Officemail email and calendar. Works only with the Officemail service (Cyrus IMAP + Postfix based).",
   "author": {
     "name": "jiran.com",
