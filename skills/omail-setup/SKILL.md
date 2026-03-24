@@ -4,7 +4,6 @@ description: "Set up Officemail CLI — OAuth login, manual JMAP configuration, 
   refresh, auth troubleshooting, and connection diagnostics (doctor). Use when the
   user asks to log in, configure auth, fix connection issues, or set up omail for
   the first time."
-version: 0.2.52
 ---
 
 # omail setup — Officemail Auth & Diagnostics

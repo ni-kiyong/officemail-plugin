@@ -4,6 +4,9 @@
     "name": "jiran.com",
     "email": "kiyong.kim@jiran.com"
   },
+  "metadata": {
+    "description": "Officemail CLI for AI — let your AI agent read, send, and manage email and calendar"
+  },
   "plugins": [
     {
       "name": "officemail",

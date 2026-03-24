@@ -3,7 +3,6 @@ name: omail-mcp
 description: "Officemail MCP server setup and tool reference. Use when the user asks
   about MCP server configuration, Claude Desktop integration, available MCP tools,
   or wants to run omail as an MCP server."
-version: 0.2.52
 ---
 
 # omail MCP — Model Context Protocol Server
