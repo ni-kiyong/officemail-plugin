@@ -28,7 +28,7 @@ description: "Email management via omail CLI — send, reply, forward, triage in
 | `+forward` | Forward (`-a`, `--include-attachments` for originals) |
 | `+triage` | Unread inbox summary (`--mailbox`, `--limit`, `--page-all`) |
 | `+read` | Read message body (`--raw`, `--save-attachments [dir]`) |
-| `+search` | Full-text search (`--query`, `--mailbox`, `--limit`, `--page-all`) |
+| `+search` | Full-text search (`--query`, `--after`, `--before`, `--mailbox`, `--limit`, `--page-all`) |
 | `+move` | Move between mailboxes |
 | `+flag` | Set/unset keywords |
 | `+draft` | Save to Drafts (`--cc`, `--html`) |
@@ -122,11 +122,26 @@ description: "Email management via omail CLI — send, reply, forward, triage in
 ### Triage and reply
 
 1. `${CLAUDE_PLUGIN_DATA}/omail mail +triage` — get unread summary
-2. `${CLAUDE_PLUGIN_DATA}/omail mail +read --message-id <id>` — read full message
-3. `${CLAUDE_PLUGIN_DATA}/omail mail +reply --message-id <id> --body "..." --dry-run`
+2. Pick a message from the results using its `id` field
+3. `${CLAUDE_PLUGIN_DATA}/omail mail +read --message-id <id>` — read full message
+4. `${CLAUDE_PLUGIN_DATA}/omail mail +reply --message-id <id> --body "..." --dry-run`
    — preview
-4. `${CLAUDE_PLUGIN_DATA}/omail mail +reply --message-id <id> --body "..."`
+5. `${CLAUDE_PLUGIN_DATA}/omail mail +reply --message-id <id> --body "..."`
    — send after confirm
+
+### Reply to a specific email
+
+When the user says "reply to this email" without specifying which one:
+
+1. Ask which message, or use the most recently read/triaged message id
+2. `${CLAUDE_PLUGIN_DATA}/omail mail +read --message-id <id>` — confirm content
+3. `${CLAUDE_PLUGIN_DATA}/omail mail +reply --message-id <id> --body "..." --dry-run`
+4. Show preview, send after user confirms
+
+### Search by date range
+
+    ${CLAUDE_PLUGIN_DATA}/omail mail +search --query "report" --after "2026-03-18" --before "2026-03-25"
+    ${CLAUDE_PLUGIN_DATA}/omail mail +search --after "2026-03-25" --limit 10
 
 ### Draft for review
 

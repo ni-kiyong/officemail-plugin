@@ -58,7 +58,7 @@ Add to Claude Desktop settings:
 | `omail_reply` | Reply to a message |
 | `omail_reply_all` | Reply-all to a message |
 | `omail_forward` | Forward a message to new recipients |
-| `omail_search` | Full-text email search with snippets |
+| `omail_search` | Full-text email search with date filtering |
 | `omail_move` | Move messages to a different mailbox |
 | `omail_flag` | Set or unset keywords (flags) on messages |
 | `omail_draft` | Save an email draft without sending |

@@ -117,6 +117,28 @@ description: "Calendar management via omail CLI — view agenda, create/update/d
 
     ${CLAUDE_PLUGIN_DATA}/omail calendar +freebusy --start "2026-03-25T00:00:00" --end "2026-03-26T00:00:00"
 
+## Recipes
+
+### RSVP to an invitation
+
+`+agenda` includes `participants` with each attendee's `participationStatus`.
+Look for events where the user's status is `needs-action`:
+
+1. `${CLAUDE_PLUGIN_DATA}/omail calendar +agenda` — list upcoming events
+2. Find the event where participants show `"participationStatus": "needs-action"`
+   for the user's email
+3. `${CLAUDE_PLUGIN_DATA}/omail calendar +rsvp --event-id <id> --status accepted`
+
+### Update or delete a recurring event
+
+When the user says "change the recurring meeting" without specifying which one:
+
+1. `${CLAUDE_PLUGIN_DATA}/omail calendar +agenda` — find the event and its id
+2. Ask: update the entire series (`--series`) or a single instance
+   (`--recurrence-id <datetime>`)?
+3. `${CLAUDE_PLUGIN_DATA}/omail calendar +update --event-id <id> --series --dry-run ...`
+4. Confirm with user, then execute without `--dry-run`
+
 ## Raw methods
 
     ${CLAUDE_PLUGIN_DATA}/omail calendar calendarevent get --params '{...}'

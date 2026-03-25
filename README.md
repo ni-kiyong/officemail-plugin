@@ -39,6 +39,29 @@ Claude Desktop에서 MCP 서버로 사용할 수 있습니다.
 
 4. Claude Desktop을 재시작하면 도구(tools)를 사용할 수 있습니다
 
+## 업데이트
+
+### Claude Code (CLI)
+
+```bash
+claude plugin update officemail
+```
+
+### Claude Code 내부
+
+```text
+claude plugin update officemail@officemail
+```
+
+또는 `/plugin` → Marketplaces 탭에서 업데이트할 수 있습니다.
+업데이트 후 세션을 종료하고 다시 시작해야 변경 사항이 적용됩니다.
+실행파일(`omail`)은 새 세션 시작 시 훅이 자동으로 업데이트합니다.
+
+### Claude Desktop
+
+[릴리즈 페이지](https://github.com/ni-kiyong/officemail-plugin/releases)에서
+최신 `.mcpb` 파일을 다운로드하여 더블클릭하면 덮어쓰기 설치됩니다.
+
 ## 인증
 
 인증 정보는 `~/.config/officemail/config.json`에 저장됩니다 (chmod 600).
@@ -101,29 +124,6 @@ Claude Code에서 자연어로 사용할 수 있습니다:
 
 실행파일은 [릴리즈 페이지](https://github.com/ni-kiyong/officemail-plugin/releases)에서
 다운로드할 수 있으며, 플러그인 설치 시 자동으로 다운로드됩니다.
-
-## 업데이트
-
-### Claude Code (CLI)
-
-```bash
-claude plugin update officemail
-```
-
-### Claude Code 내부
-
-```text
-claude plugin update officemail@officemail
-```
-
-또는 `/plugin` → Marketplaces 탭에서 업데이트할 수 있습니다.
-업데이트 후 세션을 종료하고 다시 시작해야 변경 사항이 적용됩니다.
-실행파일(`omail`)은 새 세션 시작 시 훅이 자동으로 업데이트합니다.
-
-### Claude Desktop
-
-[릴리즈 페이지](https://github.com/ni-kiyong/officemail-plugin/releases)에서
-최신 `.mcpb` 파일을 다운로드하여 더블클릭하면 덮어쓰기 설치됩니다.
 
 ## 수동 설치
 
