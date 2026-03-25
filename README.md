@@ -5,18 +5,36 @@ Officemail(Cyrus IMAP + Postfix 기반) 전용이며, 다른 이메일 서비스
 
 ## 설치
 
-### Claude Code (CLI)
+### Claude Code
+
+두 단계로 설치합니다: 마켓플레이스 등록 → 플러그인 설치.
+
+#### 1단계 — 마켓플레이스 추가
+
+CLI 또는 세션 내부에서 실행합니다 (둘 다 동일하게 동작):
 
 ```bash
-claude plugin add ni-kiyong/officemail-plugin
-```
+# CLI
+claude plugin marketplace add ni-kiyong/officemail-plugin
 
-### Claude Code 내부
-
-```text
+# 또는 세션 내부
 /plugin marketplace add ni-kiyong/officemail-plugin
-/plugin install officemail@officemail
 ```
+
+#### 2단계 — 플러그인 설치
+
+```bash
+# CLI
+claude plugin install officemail@officemail-plugin
+
+# 또는 세션 내부
+/plugin install officemail@officemail-plugin
+```
+
+팀과 공유하려면 `--scope project`, 개인 전용이면 `--scope local`을 추가합니다
+(기본값은 `user`).
+
+#### 3단계 — 인증 설정
 
 설치 후 설정 스킬을 실행하세요:
 
@@ -41,26 +59,52 @@ Claude Desktop에서 MCP 서버로 사용할 수 있습니다.
 
 ## 업데이트
 
-### Claude Code (CLI)
+### Claude Code
+
+#### CLI (터미널에서 직접 실행)
 
 ```bash
-claude plugin update officemail
+claude plugin marketplace update officemail-plugin
+claude plugin update officemail@officemail-plugin
 ```
 
-### Claude Code 내부
+#### 세션 내부 (대화형 UI)
 
 ```text
-claude plugin update officemail@officemail
+/plugin
 ```
 
-또는 `/plugin` → Marketplaces 탭에서 업데이트할 수 있습니다.
-업데이트 후 세션을 종료하고 다시 시작해야 변경 사항이 적용됩니다.
-실행파일(`omail`)은 새 세션 시작 시 훅이 자동으로 업데이트합니다.
+1. **Marketplaces** 탭 → officemail-plugin 마켓플레이스를 갱신합니다
+2. **Installed** 탭 → officemail 플러그인을 선택하여 업데이트합니다
+
+업데이트 후 세션을 재시작하면 적용됩니다.
+실행파일(`omail`)도 새 세션 시작 시 훅이 자동으로 업데이트합니다.
+
+#### 자동 업데이트 설정
+
+Marketplaces 탭에서 officemail-plugin의 auto-update를 활성화하면,
+Claude Code 시작 시 마켓플레이스 갱신과 플러그인 업데이트가 자동으로 수행됩니다.
+써드파티 마켓플레이스는 기본 비활성화이므로 직접 켜야 합니다.
+실행파일(`omail`) 업데이트를 위해 세션 재시작이 필요합니다.
 
 ### Claude Desktop
 
 [릴리즈 페이지](https://github.com/ni-kiyong/officemail-plugin/releases)에서
 최신 `.mcpb` 파일을 다운로드하여 더블클릭하면 덮어쓰기 설치됩니다.
+
+## 제거
+
+### Claude Code
+
+```bash
+# CLI
+claude plugin uninstall officemail@officemail-plugin
+
+# 또는 세션 내부
+/plugin uninstall officemail@officemail-plugin
+```
+
+데이터를 보존하면서 제거하려면 `--keep-data`를 추가합니다.
 
 ## 인증
 
