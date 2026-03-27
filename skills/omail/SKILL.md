@@ -31,7 +31,8 @@ When installed as a plugin, the omail binary is at:
 |------|-------------|
 | `--output json\|table\|text` | Output format (default: json) |
 | `--dry-run` | Preview JMAP request without sending |
-| `--account <email>` | Override default account |
+| `--profile <name>` | Use a named auth profile |
+| `--account <email>` | Override default JMAP account |
 | `--verbose` | Print JMAP request/response to stderr |
 
 ## Exit codes
