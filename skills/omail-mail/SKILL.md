@@ -1,8 +1,9 @@
 ---
 name: omail-mail
-description: "Email management via omail CLI — send, reply, forward, triage inbox,
-  read messages, search, move, flag, draft, watch for new mail, and raw JMAP mail
-  methods. Use when the user asks to read, send, search, organize, or manage email."
+description: "Email management via omail CLI — send, reply, forward, redirect,
+  triage inbox, read messages, search, move, flag, draft, watch for new mail,
+  and raw JMAP mail methods. Use when the user asks to read, send, search,
+  organize, or manage email."
 ---
 
 # omail mail — Officemail Email Management
@@ -25,7 +26,8 @@ description: "Email management via omail CLI — send, reply, forward, triage in
 | `+send` | Send an email (`-a` for attachments, `--cc`, `--bcc`, `--html`, `--from`) |
 | `+reply` | Reply with auto-threading (`-a` for attachments) |
 | `+reply-all` | Reply-all (`-a` for attachments) |
-| `+forward` | Forward (`-a`, `--include-attachments` for originals) |
+| `+forward` | Forward (`-a`, `--include-attachments`, `--raw`) |
+| `+redirect` | Redirect (bounce) preserving original headers |
 | `+triage` | Unread inbox summary (`--mailbox`, `--limit`, `--page-all`) |
 | `+read` | Read message body (`--raw`, `--save-attachments [dir]`) |
 | `+search` | Full-text search (`--query`, `--after`, `--before`, `--mailbox`, `--limit`, `--page-all`) |
@@ -61,6 +63,9 @@ description: "Email management via omail CLI — send, reply, forward, triage in
     ${CLAUDE_PLUGIN_DATA}/omail mail +forward --message-id <id> --to bob@example.com --body "FYI"
     ${CLAUDE_PLUGIN_DATA}/omail mail +forward --message-id <id> --to bob@example.com --include-attachments
     ${CLAUDE_PLUGIN_DATA}/omail mail +forward --message-id <id> --to bob@example.com -a extra.pdf --include-attachments
+    ${CLAUDE_PLUGIN_DATA}/omail mail +forward --message-id <id> --to bob@example.com --raw
+    ${CLAUDE_PLUGIN_DATA}/omail mail +redirect --message-id <id> --to bob@example.com
+    ${CLAUDE_PLUGIN_DATA}/omail mail +redirect --message-id <id> --to alice@example.com bob@example.com
 
 ### Draft, organize, watch
 
@@ -137,6 +142,13 @@ When the user says "reply to this email" without specifying which one:
 2. `${CLAUDE_PLUGIN_DATA}/omail mail +read --message-id <id>` — confirm content
 3. `${CLAUDE_PLUGIN_DATA}/omail mail +reply --message-id <id> --body "..." --dry-run`
 4. Show preview, send after user confirms
+
+### Redirect vs forward
+
+- `+forward` — creates a new email with `Fwd:` subject and `From: you`
+- `+forward --raw` — same as forward but without the separator header
+- `+redirect` — bounces original as-is with `Resent-*` headers,
+  original `From` preserved
 
 ### Search by date range
 
