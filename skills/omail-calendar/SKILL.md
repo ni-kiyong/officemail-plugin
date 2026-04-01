@@ -1,6 +1,7 @@
 ---
 name: omail-calendar
-description: "Calendar management via omail CLI — view agenda, create/update/delete
+description:
+  "Calendar management via omail CLI — view agenda, create/update/delete
   events, recurring events, free/busy, RSVP, calendar CRUD, sharing, and raw JMAP
   calendar methods. Use when the user asks about calendar, scheduling, agenda, or
   events."
@@ -27,26 +28,26 @@ description: "Calendar management via omail CLI — view agenda, create/update/d
 
 ## Event Helpers
 
-| Command | Description |
-|---------|-------------|
-| `+agenda` | Upcoming events (default: 7 days, `--page-all`) |
-| `+insert` | Create event (`--rrule`, `--alert`, `--online`, `--all-day`, `--invite`) |
-| `+update` | Update event (`--series`, `--recurrence-id`, `--add-invite`, `--remove-invite`) |
-| `+delete` | Delete event (`--series`, `--recurrence-id`) |
-| `+freebusy` | Check free/busy status for a time range |
-| `+rsvp` | Accept, decline, or tentative an invitation |
-| `+copy` | Copy event to another account (CalendarEvent/copy) |
-| `+parse` | Parse iCalendar data into JSCalendar (CalendarEvent/parse) |
+| Command     | Description                                                                     |
+| ----------- | ------------------------------------------------------------------------------- |
+| `+agenda`   | Upcoming events (default: 7 days, `--page-all`)                                 |
+| `+insert`   | Create event (`--rrule`, `--alert`, `--online`, `--all-day`, `--invite`)        |
+| `+update`   | Update event (`--series`, `--recurrence-id`, `--add-invite`, `--remove-invite`) |
+| `+delete`   | Delete event (`--series`, `--recurrence-id`)                                    |
+| `+freebusy` | Check free/busy status for a time range                                         |
+| `+rsvp`     | Accept, decline, or tentative an invitation                                     |
+| `+copy`     | Copy event to another account (CalendarEvent/copy)                              |
+| `+parse`    | Parse iCalendar data into JSCalendar (CalendarEvent/parse)                      |
 
 ## Calendar Management (no `+` prefix)
 
-| Command | Description |
-|---------|-------------|
-| `create` | Create a new calendar (`--name`, `--color`, `--visible`) |
-| `update` | Update a calendar (`--calendar-id`, `--name`, `--color`) |
-| `delete` | Delete a calendar (`--calendar-id`) |
-| `share` | Share calendar (`--calendar-id`, `--with`, `--role`) |
-| `unshare` | Remove sharing (`--calendar-id`, `--with`) |
+| Command   | Description                                              |
+| --------- | -------------------------------------------------------- |
+| `create`  | Create a new calendar (`--name`, `--color`, `--visible`) |
+| `update`  | Update a calendar (`--calendar-id`, `--name`, `--color`) |
+| `delete`  | Delete a calendar (`--calendar-id`)                      |
+| `share`   | Share calendar (`--calendar-id`, `--with`, `--role`)     |
+| `unshare` | Remove sharing (`--calendar-id`, `--with`)               |
 
 ## Usage Examples
 

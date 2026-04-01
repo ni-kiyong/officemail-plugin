@@ -21,20 +21,20 @@ description: "Email management via omail CLI — send, reply, forward, redirect,
 
 ## Helpers
 
-| Command | Description |
-|---------|-------------|
-| `+send` | Send an email (`-a` for attachments, `--cc`, `--bcc`, `--html`, `--from`) |
-| `+reply` | Reply with auto-threading (`-a` for attachments) |
-| `+reply-all` | Reply-all (`-a` for attachments) |
-| `+forward` | Forward (`-a`, `--include-attachments`, `--raw`) |
-| `+redirect` | Redirect (bounce) preserving original headers |
-| `+triage` | Unread inbox summary (`--mailbox`, `--limit`, `--page-all`) |
-| `+read` | Read message body (`--raw`, `--save-attachments [dir]`) |
-| `+search` | Full-text search (`--query`, `--after`, `--before`, `--mailbox`, `--limit`, `--page-all`) |
-| `+move` | Move between mailboxes |
-| `+flag` | Set/unset keywords |
-| `+draft` | Save to Drafts (`--cc`, `--html`) |
-| `+watch` | Watch for new emails via EventSource (`--raw`, `--ping`) |
+| Command      | Description                                                                               |
+| ------------ | ----------------------------------------------------------------------------------------- |
+| `+send`      | Send an email (`-a` for attachments, `--cc`, `--bcc`, `--html`, `--from`)                 |
+| `+reply`     | Reply with auto-threading (`-a` for attachments)                                          |
+| `+reply-all` | Reply-all (`-a` for attachments)                                                          |
+| `+forward`   | Forward (`-a`, `--include-attachments`, `--raw`)                                          |
+| `+redirect`  | Redirect (bounce) preserving original headers                                             |
+| `+triage`    | Unread inbox summary (`--mailbox`, `--limit`, `--page-all`)                               |
+| `+read`      | Read message body (`--raw`, `--save-attachments [dir]`)                                   |
+| `+search`    | Full-text search (`--query`, `--after`, `--before`, `--mailbox`, `--limit`, `--page-all`) |
+| `+move`      | Move between mailboxes                                                                    |
+| `+flag`      | Set/unset keywords                                                                        |
+| `+draft`     | Save to Drafts (`--cc`, `--html`)                                                         |
+| `+watch`     | Watch for new emails via EventSource (`--raw`, `--ping`)                                  |
 
 ## Usage examples
 
@@ -79,25 +79,25 @@ description: "Email management via omail CLI — send, reply, forward, redirect,
 
 ## +send flags
 
-| Flag | Required | Description |
-|------|----------|-------------|
-| `--to` | Yes | Recipient email(s) |
-| `--subject` | Yes | Subject line |
-| `--body` | Yes | Message body (plain text or HTML) |
-| `--cc` | No | CC recipients |
-| `--bcc` | No | BCC recipients |
-| `--from` | No | Send-as alias |
-| `--html` | No | Treat body as HTML |
-| `-a, --attach` | No | File attachment (repeatable, max 25MB total) |
-| `--dry-run` | No | Preview without sending |
+| Flag           | Required | Description                                  |
+| -------------- | -------- | -------------------------------------------- |
+| `--to`         | Yes      | Recipient email(s)                           |
+| `--subject`    | Yes      | Subject line                                 |
+| `--body`       | Yes      | Message body (plain text or HTML)            |
+| `--cc`         | No       | CC recipients                                |
+| `--bcc`        | No       | BCC recipients                               |
+| `--from`       | No       | Send-as alias                                |
+| `--html`       | No       | Treat body as HTML                           |
+| `-a, --attach` | No       | File attachment (repeatable, max 25MB total) |
+| `--dry-run`    | No       | Preview without sending                      |
 
 ## +triage flags
 
-| Flag | Required | Default | Description |
-|------|----------|---------|-------------|
-| `--mailbox` | No | INBOX | Mailbox name or role |
-| `--limit` | No | 50 | Max results per page |
-| `--page-all` | No | false | Fetch all pages |
+| Flag         | Required | Default | Description          |
+| ------------ | -------- | ------- | -------------------- |
+| `--mailbox`  | No       | INBOX   | Mailbox name or role |
+| `--limit`    | No       | 50      | Max results per page |
+| `--page-all` | No       | false   | Fetch all pages      |
 
 ## +triage output (JSON)
 

@@ -1,6 +1,7 @@
 ---
 name: omail-setup
-description: "Set up Officemail CLI — OAuth login, manual JMAP configuration, token
+description:
+  "Set up Officemail CLI — OAuth login, manual JMAP configuration, token
   refresh, auth troubleshooting, multi-profile management, and connection diagnostics
   (doctor). Use when the user asks to log in, configure auth, fix connection issues,
   manage multiple accounts, or set up omail for the first time."

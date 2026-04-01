@@ -1,4 +1,4 @@
-# Officemail Plugin 0.2.81
+# Officemail Plugin 0.2.82
 
 AI 에이전트가 Officemail 서비스의 이메일과 캘린더를 읽고, 보내고, 관리할 수 있는 Claude Code 플러그인이자 MCP 서버입니다.
 Officemail(Cyrus IMAP + Postfix 기반) 전용이며, 다른 이메일 서비스나 JMAP 서버에서는 동작하지 않습니다.
@@ -50,9 +50,9 @@ Claude Desktop에서 MCP 서버로 사용할 수 있습니다.
 2. 더블클릭하면 바이너리와 MCP 서버 설정이 자동으로 설치됩니다
 3. 터미널에서 인증을 설정합니다:
 
-    ```bash
-    omail auth login --email you@company.com
-    ```
+   ```bash
+   omail auth login --email you@company.com
+   ```
 
 4. Claude Desktop을 재시작하면 도구(tools)를 사용할 수 있습니다
 
@@ -149,12 +149,12 @@ MCP 도구에서는 `profile` 파라미터로 프로필을 지정하거나,
 
 ## 스킬
 
-| 스킬 | 설명 |
-|------|------|
-| `omail` | 개요, 글로벌 플래그, 종료 코드, 보안 규칙, 스키마 |
-| `omail-setup` | 인증 (OAuth/수동), 연결 진단 (doctor) |
-| `omail-mail` | 메일 전체: 보내기, 답장, 분류, 읽기, 검색, 이동, 플래그, 초안, 감시 |
-| `omail-calendar` | 캘린더 전체: 일정 CRUD, 반복, 알림, RSVP, 공유, 파싱 |
+| 스킬             | 설명                                                                |
+| ---------------- | ------------------------------------------------------------------- |
+| `omail`          | 개요, 글로벌 플래그, 종료 코드, 보안 규칙, 스키마                   |
+| `omail-setup`    | 인증 (OAuth/수동), 연결 진단 (doctor)                               |
+| `omail-mail`     | 메일 전체: 보내기, 답장, 분류, 읽기, 검색, 이동, 플래그, 초안, 감시 |
+| `omail-calendar` | 캘린더 전체: 일정 CRUD, 반복, 알림, RSVP, 공유, 파싱                |
 
 ## 프롬프트 예시
 

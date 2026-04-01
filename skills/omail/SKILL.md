@@ -1,6 +1,7 @@
 ---
 name: omail
-description: "Overview and quick reference for Officemail CLI (omail). Use when the
+description:
+  "Overview and quick reference for Officemail CLI (omail). Use when the
   user asks general questions about omail capabilities, available commands, schema
   introspection, or environment configuration."
 ---
@@ -19,32 +20,32 @@ When installed as a plugin, the omail binary is at:
 
 ## Skill guide
 
-| Need | Skill |
-|------|-------|
-| First-time setup, login, auth, doctor | omail-setup |
-| Email: send, reply, triage, read, search, move, flag, draft, watch | omail-mail |
-| Calendar: agenda, events, free/busy, RSVP, sharing | omail-calendar |
+| Need                                                               | Skill          |
+| ------------------------------------------------------------------ | -------------- |
+| First-time setup, login, auth, doctor                              | omail-setup    |
+| Email: send, reply, triage, read, search, move, flag, draft, watch | omail-mail     |
+| Calendar: agenda, events, free/busy, RSVP, sharing                 | omail-calendar |
 
 ## Global flags
 
-| Flag | Description |
-|------|-------------|
-| `--output json\|table\|text` | Output format (default: json) |
-| `--dry-run` | Preview JMAP request without sending |
-| `--profile <name>` | Use a named auth profile |
-| `--account <email>` | Override default JMAP account |
-| `--verbose` | Print JMAP request/response to stderr |
+| Flag                         | Description                           |
+| ---------------------------- | ------------------------------------- |
+| `--output json\|table\|text` | Output format (default: json)         |
+| `--dry-run`                  | Preview JMAP request without sending  |
+| `--profile <name>`           | Use a named auth profile              |
+| `--account <email>`          | Override default JMAP account         |
+| `--verbose`                  | Print JMAP request/response to stderr |
 
 ## Exit codes
 
-| Code | Meaning |
-|------|---------|
-| 0 | Success |
-| 1 | JMAP API error |
-| 2 | Auth error |
-| 3 | Validation error |
-| 4 | Connection error |
-| 5 | Internal error |
+| Code | Meaning          |
+| ---- | ---------------- |
+| 0    | Success          |
+| 1    | JMAP API error   |
+| 2    | Auth error       |
+| 3    | Validation error |
+| 4    | Connection error |
+| 5    | Internal error   |
 
 ## Security rules
 
@@ -60,10 +61,10 @@ When installed as a plugin, the omail binary is at:
 
 ## Environment variables
 
-| Variable | Description |
-|----------|-------------|
-| `OMAIL_TOKEN` | Bearer token |
-| `OMAIL_JMAP_URL` | JMAP endpoint URL |
-| `OMAIL_CONFIG_DIR` | Config directory |
-| `OMAIL_LOG` | Log level (debug/info/warn/error) |
-| `OMAIL_LOG_FILE` | JSON log directory |
+| Variable           | Description                       |
+| ------------------ | --------------------------------- |
+| `OMAIL_TOKEN`      | Bearer token                      |
+| `OMAIL_JMAP_URL`   | JMAP endpoint URL                 |
+| `OMAIL_CONFIG_DIR` | Config directory                  |
+| `OMAIL_LOG`        | Log level (debug/info/warn/error) |
+| `OMAIL_LOG_FILE`   | JSON log directory                |
