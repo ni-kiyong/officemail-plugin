@@ -1,4 +1,4 @@
-# Officemail Plugin 0.2.82
+# Officemail Plugin 0.2.83
 
 AI 에이전트가 Officemail 서비스의 이메일과 캘린더를 읽고, 보내고, 관리할 수 있는 Claude Code 플러그인이자 MCP 서버입니다.
 Officemail(Cyrus IMAP + Postfix 기반) 전용이며, 다른 이메일 서비스나 JMAP 서버에서는 동작하지 않습니다.
