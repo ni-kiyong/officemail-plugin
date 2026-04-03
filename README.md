@@ -3,7 +3,7 @@
 Officemail 서비스의 공식 마켓플레이스입니다.
 메일, 캘린더 등 Officemail이 제공하는 서비스를 AI 에이전트에서 사용할 수 있습니다.
 
-## Officemail CLI 0.2.87
+## Officemail CLI 0.2.88
 
 AI 에이전트가 Officemail 서비스의 이메일과 캘린더를 읽고, 보내고, 관리할 수 있는
 Claude Code 플러그인이자 MCP 서버입니다.
@@ -18,23 +18,29 @@ Officemail(Cyrus IMAP + Postfix 기반) 전용이며,
 
 ##### 1단계 — 마켓플레이스 추가
 
-CLI 또는 세션 내부에서 실행합니다 (둘 다 동일하게 동작):
+세션 내부:
+
+```text
+/plugin marketplace add nextintelligence-ai/officemail-official
+```
+
+또는 CLI:
 
 ```bash
-# 세션 내부
-/plugin marketplace add nextintelligence-ai/officemail-official
-
-# 또는 CLI
 claude plugin marketplace add nextintelligence-ai/officemail-official
 ```
 
 ##### 2단계 — 플러그인 설치
 
-```bash
-# 세션 내부
-/plugin install officemail@officemail
+세션 내부:
 
-# 또는 CLI
+```text
+/plugin install officemail@officemail
+```
+
+또는 CLI:
+
+```bash
 claude plugin install officemail@officemail
 ```
 
@@ -102,11 +108,15 @@ Claude Code 시작 시 마켓플레이스 갱신과 플러그인 업데이트가
 
 #### Claude Code
 
-```bash
-# 세션 내부
-/plugin uninstall officemail
+세션 내부:
 
-# 또는 CLI
+```text
+/plugin uninstall officemail
+```
+
+또는 CLI:
+
+```bash
 claude plugin uninstall officemail
 ```
 
