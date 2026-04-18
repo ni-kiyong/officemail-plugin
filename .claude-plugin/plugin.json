@@ -1,0 +1,11 @@
+{
+  "name": "officemail",
+  "version": "0.2.99-rc.e59f145",
+  "description": "OfficeMail CLI for AI — let your AI agent read, send, and manage OfficeMail email and calendar.",
+  "author": {
+    "name": "jiran.com",
+    "email": "kiyong.kim@jiran.com"
+  },
+  "license": "UNLICENSED",
+  "repository": "https://github.com/nextintelligence-ai/officemail-official"
+}

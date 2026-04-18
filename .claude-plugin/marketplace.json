@@ -1,0 +1,17 @@
+{
+  "name": "officemail",
+  "version": "0.3",
+  "owner": {
+    "name": "jiran.com",
+    "email": "kiyong.kim@jiran.com"
+  },
+  "metadata": {
+    "description": "OfficeMail Official Marketplace — AI agent tools for OfficeMail services"
+  },
+  "plugins": [
+    {
+      "name": "officemail",
+      "source": "./"
+    }
+  ]
+}
