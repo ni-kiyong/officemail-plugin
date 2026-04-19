@@ -2,13 +2,13 @@
 
 > **Pre-release (RC) channel** — 이 브랜치는 정식 릴리즈 전 테스트용입니다.
 >
-> - 현재 RC 태그: `0.2.99-rc.57604e5`
+> - 현재 RC 태그: `0.2.99-rc.c70c186`
 > - RC 설치:
->   `/plugin marketplace add nextintelligence-ai/officemail-official@rc` 후
->   `/plugin install officemail@officemail-rc`
+>   - `/plugin marketplace add nextintelligence-ai/officemail-official@rc`
+>   - `/plugin install officemail@officemail-rc`
 > - 안정 버전으로 복귀:
->   `/plugin uninstall officemail@officemail-rc` 후
->   `/plugin marketplace remove officemail-rc`
+>   - `/plugin uninstall officemail@officemail-rc`
+>   - `/plugin marketplace remove officemail-rc`
 > - RC 빌드의 플러그인 파일(스킬/MCP manifest)과 바이너리는 같은 빌드로부터
 >   동기화되지만, 안정 버전 대비 검증이 덜 되었을 수 있습니다.
 
