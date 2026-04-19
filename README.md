@@ -4,7 +4,7 @@
 >
 > - 현재 RC 태그: `0.2.99-rc.e59f145`
 > - RC 설치:
->   `/plugin marketplace add officemail-rc https://github.com/nextintelligence-ai/officemail-official#rc` 후
+>   `/plugin marketplace add nextintelligence-ai/officemail-official@rc` 후
 >   `/plugin install officemail@officemail-rc`
 > - 안정 버전으로 복귀:
 >   `/plugin uninstall officemail@officemail-rc` 후
