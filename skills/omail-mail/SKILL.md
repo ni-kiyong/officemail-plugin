@@ -46,6 +46,7 @@ argument-hint: "[send | reply | forward | triage | read | search | move | flag |
 | `+triage`    | Unread inbox summary (`--mailbox`, `--limit`, `--page-all`)                               |
 | `+read`      | Read message body (`--raw`, `--save-attachments [dir]`)                                   |
 | `+search`    | Full-text search (`--query`, `--after`, `--before`, `--mailbox`, `--limit`, `--page-all`) |
+| `+thread`    | Thread navigation: `by-message-id <id>` resolves a Message-ID to its full tree            |
 | `+move`      | Move between mailboxes                                                                    |
 | `+flag`      | Set/unset keywords                                                                        |
 | `+draft`     | Save to Drafts (`--cc`, `--html`)                                                         |
@@ -64,6 +65,10 @@ argument-hint: "[send | reply | forward | triage | read | search | move | flag |
     ${CLAUDE_PLUGIN_DATA}/omail mail +read --message-id <id> --save-attachments /tmp  # download to dir
     ${CLAUDE_PLUGIN_DATA}/omail mail +search --query "from:bob budget" --limit 20
     ${CLAUDE_PLUGIN_DATA}/omail mail +search --query "report" --page-all
+    ${CLAUDE_PLUGIN_DATA}/omail mail +search --query "messageid:<root-id>"          # exact Message-ID
+    ${CLAUDE_PLUGIN_DATA}/omail mail +search --query "references:<root-id>"         # all replies in a thread
+    ${CLAUDE_PLUGIN_DATA}/omail mail +search --query "inreplyto:<msg-id>"           # direct replies to a message
+    ${CLAUDE_PLUGIN_DATA}/omail mail +thread by-message-id "<root-id>"               # full thread tree (Cyrus 3.12+)
 
 ### Send & reply
 
